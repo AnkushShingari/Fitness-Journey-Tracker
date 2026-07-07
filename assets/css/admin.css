@@ -1,1 +1,750 @@
+/**
+ * Fitness Journey Tracker - Admin Dashboard Styles
+ * Tailwind-inspired clean, modern, responsive admin interface
+ */
 
+/* Container */
+* {
+  --fjt-primary: #319B58;
+  --fjt-secondary: #319B58;
+  --fjt-primary-lite: #EBFAF0;
+}
+
+.fjt-admin-wrap {
+    background: #f9fafb;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.fjt-admin-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Statistics Cards Grid */
+.fjt-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.fjt-stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fjt-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.fjt-stat-icon {
+    font-size: 36px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.fjt-stat-primary .fjt-stat-icon {
+    background: linear-gradient(135deg, #764ba2 0%, #764ba2 100%);
+}
+
+.fjt-stat-success .fjt-stat-icon {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.fjt-stat-warning .fjt-stat-icon {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.fjt-stat-info .fjt-stat-icon {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.fjt-stat-content h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+    line-height: 1;
+}
+
+.fjt-stat-content p {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 4px 0 0 0;
+}
+
+/* Filters Section */
+.fjt-filters-section {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.fjt-search-box {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.fjt-search-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.fjt-search-input:focus {
+    outline: none;
+    border-color: var(--fjt-primary);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.fjt-filter-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.fjt-filter-btn {
+    padding: 8px 16px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.fjt-filter-btn:hover {
+    border-color: var(--fjt-primary);
+    color: var(--fjt-primary);
+}
+
+.fjt-filter-btn.active {
+    background: linear-gradient(135deg, var(--fjt-primary) 0%, var(--fjt-secondary) 100%);
+    color: white;
+    border-color: transparent;
+}
+
+/* Table Container */
+.fjt-table-container {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.fjt-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.fjt-table thead {
+    background: #f9fafb;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.fjt-table th {
+    padding: 16px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.fjt-table tbody tr {
+    border-bottom: 1px solid #f3f4f6;
+    transition: background 0.2s;
+}
+
+.fjt-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.fjt-table td {
+    padding: 16px;
+    font-size: 14px;
+    color: #374151;
+}
+
+.fjt-loading {
+    text-align: center;
+    color: #9ca3af;
+    padding: 20px !important;
+    margin: 5px;
+    font-style: italic;
+}
+
+/* Badges */
+.fjt-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.fjt-badge-success {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.fjt-badge-danger {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.fjt-badge-warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.fjt-badge-info {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+/* Buttons */
+.fjt-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.fjt-btn-primary {
+    background: linear-gradient(135deg, var(--fjt-primary) 0%, var(--fjt-secondary) 100%);
+    color: white;
+}
+
+.fjt-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+.fjt-btn-secondary {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.fjt-btn-secondary:hover {
+    background: #e5e7eb;
+}
+
+.fjt-btn-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.fjt-btn-warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+}
+
+.fjt-btn-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+}
+
+.fjt-btn-sm {
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.fjt-btn-icon {
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.2s;
+}
+
+.fjt-btn-icon:hover {
+    transform: scale(1.2);
+}
+
+/* User Detail Page */
+.fjt-user-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.fjt-user-mobile {
+    color: #6b7280;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.fjt-user-container {
+    display: grid;
+    gap: 24px;
+}
+
+.fjt-user-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.fjt-user-card h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 20px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+.fjt-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.fjt-info-item label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.fjt-info-item p {
+    font-size: 15px;
+    color: #1f2937;
+    font-weight: 500;
+    margin: 0;
+}
+
+.fjt-user-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px solid #f3f4f6;
+}
+
+.fjt-no-data {
+    text-align: center;
+    color: #9ca3af;
+    padding: 40px;
+    font-style: italic;
+}
+
+/* Charts Row */
+.fjt-charts-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.fjt-chart-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.fjt-chart-card h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .fjt-admin-wrap {
+        padding: 12px;
+    }
+
+    .fjt-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fjt-search-box {
+        flex-direction: column;
+    }
+
+    .fjt-filter-buttons {
+        justify-content: center;
+    }
+
+    .fjt-table-container {
+        overflow-x: auto;
+    }
+
+    .fjt-table {
+        min-width: 800px;
+    }
+
+    .fjt-user-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .fjt-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fjt-user-actions {
+        flex-direction: column;
+    }
+
+    .fjt-charts-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .fjt-stat-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .fjt-stat-content h3 {
+        font-size: 24px;
+    }
+}
+
+/* Loading Animation */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.fjt-btn .fjt-loading,
+.fjt-table .fjt-loading {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border: 2px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.6s linear infinite;
+}
+
+.fjt-table .fjt-loading {
+    border-color: rgba(0,0,0,.1);
+    border-top-color: var(--fjt-primary);
+}
+
+/* Inline Editing System */
+.fjt-editable-field {
+    position: relative;
+}
+
+.fjt-editable-field.editing .fjt-display-mode {
+    display: none;
+}
+
+.fjt-editable-field.editing .fjt-edit-mode {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+}
+
+.fjt-editable-field.editing .fjt-edit-mode .fjt-edit-input {
+    width: 60%;
+}
+
+.fjt-edit-mode {
+    display: none;
+}
+
+.fjt-edit-input {
+    flex: 1;
+    padding: 6px 12px;
+    border: 2px solid var(--fjt-primary);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    background: #f0f7ff;
+    transition: all 0.2s;
+}
+
+.fjt-edit-input:focus {
+    outline: none;
+    border-color: var(--fjt-secondary);
+    background: white;
+}
+
+.fjt-edit-mode .fjt-btn-icon {
+    padding: 6px 10px;
+    font-size: 16px;
+    background: none;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.fjt-save-edit {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white;
+    border: none !important;
+}
+
+.fjt-save-edit:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.fjt-cancel-edit {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+    color: white;
+    border: none !important;
+}
+
+.fjt-cancel-edit:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.fjt-display-mode {
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.fjt-editing-enabled .fjt-display-mode {
+    background: #f9fafb;
+    border: 1px dashed #e5e7eb;
+}
+
+.fjt-editing-enabled .fjt-display-mode:hover {
+    background: #f0f7ff;
+    border-color: var(--fjt-primary);
+}
+
+/* Entry Inline Editing */
+tr.fjt-editing {
+    background: #f0f7ff;
+}
+
+.fjt-entry-edit-container {
+    padding: 16px !important;
+    background: white;
+    border: 2px solid var(--fjt-primary);
+    border-radius: 8px;
+}
+
+.fjt-entry-edit-container label {
+    color: #374151;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.fjt-entry-edit-container input,
+.fjt-entry-edit-container select {
+    font-size: 14px;
+}
+
+.fjt-entry-edit-container input:focus,
+.fjt-entry-edit-container select:focus {
+    outline: none;
+    border-color: var(--fjt-secondary);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+
+
+/* Dynamic Entry Accordion */
+.fjt-entries-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fjt-entry-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+.fjt-entry-card:hover {
+    border-color: #d1d5db;
+}
+
+.fjt-entry-card.expanded {
+    border-color: #8b5cf6;
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.1);
+}
+
+.fjt-entry-card.editing {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.fjt-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background 0.2s;
+}
+
+.fjt-entry-header:hover {
+    background: #f3f4f6;
+}
+
+.fjt-entry-summary h3 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    color: #1f2937;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fjt-entry-weight {
+    font-weight: 700;
+    color: #8b5cf6;
+}
+
+.fjt-entry-date {
+    color: #6b7280;
+    font-size: 13px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fjt-accordion-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fjt-entry-edit-btn {
+    font-size: 16px;
+    padding: 6px 10px;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.fjt-entry-edit-btn:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+.fjt-entry-card.editing .fjt-entry-edit-btn {
+    background: #8b5cf6;
+    color: white;
+    border-color: #8b5cf6;
+}
+
+.fjt-accordion-icon {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.fjt-entry-body {
+    padding: 20px;
+    background: #fff;
+}
+
+.fjt-entry-fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.fjt-entry-footer {
+    padding-top: 15px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Inline editing - matches Personal Data editor */
+.fjt-editable-field .fjt-display-mode {
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.fjt-editable-field .fjt-display-mode:hover {
+    background: #f3f4f6;
+}
+
+.fjt-editable-field.editing .fjt-display-mode {
+    display: none;
+}
+
+.fjt-editable-field.editing .fjt-edit-mode {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+}
+
+.fjt-edit-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+}
+
+.fjt-edit-input:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.fjt-badge-warning {
+    background: #fef3c7;
+    color: #92400e;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+}
